@@ -65,4 +65,18 @@ export const updateDocument = async (collection, id, data) =>{
     return result 
 }
 
+export const deleteDocument = async (collection, id, data) =>{
+    const result = {statusResponse: false, error:null}
+
+    try {
+        await db.collection(collection).doc(id).delete()
+        result.statusResponse = true 
+    } catch (error) {
+        result.error = error
+    }
+
+    return result 
+}
+
+
 
